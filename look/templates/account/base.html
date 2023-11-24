@@ -1,0 +1,45 @@
+{% extends 'districts/dist.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body class="is-preload">
+
+    {% block main %}
+    <section id="main" class="container">
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <section class="box special features">
+    <div>
+      <h2>Menu:</h2>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'account_email' %}">Change E-mail</a>
+        <p><a href="{% url 'account_logout' %}">Sign Out</a></p>
+        {% else %}
+        <a href="{% url 'account_login' %}">Sign In</a>
+        <p><a href="{% url 'account_signup' %}">Sign Up</a></p>
+        {% endif %}
+
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+    </section>
+  </section>
+  </body>
+</html>

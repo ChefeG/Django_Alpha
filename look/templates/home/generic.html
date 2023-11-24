@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+{% load static recaptcha3 %}
+<html>
+	<head>
+		<title>{{District.name}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+
+		{% recaptcha_init %}
+		{% recaptcha_ready action_name='homepage' %}
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+
+			{% include 'include/header_2.html' %}
+
+
+			<!-- Main -->
+				<section id="main" class="container">
+					{% block content %}
+					<header>
+						<h2>{{detail.name}}</h2>
+						<p>{{detail.description|safe}}</p>
+					</header>
+
+						<!-- Places nearby -->
+						<section class="box special features">
+							<header class="major">
+								<span class="image feature"> <img src="{{detail.image.url}}" width="100%"></span>
+								<h2>Places nearby</h2>
+								<p>{{detail.places_nearbly}}</p>
+							</header>
+							<div class="features-row">
+								{% for elem in detail.districtsimage_set.all %}
+								<section>
+									<span></span>
+									<h3>{{elem.name}}</h3>
+									<p><img src="{{ elem.image.url }}" class="image feature" width="100%" alt="">
+										<a href="{% url 'dist_image' elem.slug %}" class="button primary">Learn more</a>
+									</p><br>
+								</section>
+								{% endfor %}
+							</div>
+						</section>
+
+						<!-- Apartment -->
+						<section class="box special features">
+							<h2>Choose an apartment:</h2>
+							<div class="features-row">
+								{% for elem in detail.apartment_set.all %}
+								<section>
+									<img src="{{elem.apart_image.url}}" class="image" width="80%">
+									<h3>{{elem.apart_name}}: {{elem.apart_price}}
+										<p><a class="button alt " style="height:20%;width:50%">Buy!</a></p>
+									</h3><br>
+								</section>
+								{% endfor %}
+							</div>
+						</section>
+
+						<!-- District news -->
+						<section class="box special features">
+							<h2>Project news:</h2>
+							<div class="features-row">
+								{% for elem in detail.districtsnews_set.all %}
+								<section>
+									<h3>{{elem.title}}</h3>
+									<p>{{elem.anons}}</p>
+									<h1>{{elem.date}}</h1>
+									<p><a href="{% url 'dist_news' elem.id %}" class="button primary"
+										  style="height:20%;width:50%">Learn
+										more</a></p>
+									<br>
+								</section>
+								{% endfor %}
+							</div>
+						</section>
+
+						<!-- Review form -->
+						<section class="box special features">
+							<h2>Reviews</h2>
+							<div class="features-row">
+								<form action="{% url 'add_review' detail.id %}" method="post"><br>
+									{% csrf_token %}
+									<textarea style="resize: none" class="form-control" name="text"
+											  placeholder="Your review..."></textarea><br>
+									<input class="form-control" name="name" type="text" placeholder="Name"><br>
+									<input class="form-control" name="date" type="date" placeholder="Date"><br><br>
+									{{form.captcha}}
+									<button class="button" type="submit">Send</button>
+								</form>
+								<!-- Reviews -->
+								{% for elem in detail.reviews_set.all %}
+								<div class="features-row">
+									<br>
+									<p>{{elem.text}}</p>
+									<p>{{elem.name}}&nbsp;|&nbsp;{{elem.date}}</p>
+								</div>
+								{% endfor %}
+							</div>
+						</section>
+					{% endblock content %}
+				</section>
+		</div>
+
+
+
+			<!-- Footer -->
+			{% include 'include/footer.html' %}
+
+
+		<!-- Scripts -->
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/jquery.dropotron.min.js' %}"></script>
+		<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+		<script src="{% static 'js/browser.min.js' %}"></script>
+		<script src="{% static 'js/breakpoints.min.js' %}"></script>
+		<script src="{% static 'js/util.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>

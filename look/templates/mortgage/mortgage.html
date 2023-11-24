@@ -1,0 +1,90 @@
+{% extends 'home/generic.html' %}
+{% block content %}
+<header>
+    <h2>Mortgage Online</h2>
+    <p>Apply for a mortgage online from anywhere in the world.
+        98% of applications submitted via pik.ru, receive approval.
+        The review time is 48 hours.</p>
+    <a href="{% url 'apply' %}" class="button">Apply for a mortgage</a>
+</header>
+<div class="row">
+    <div class="col-12">
+        <section class="box">
+            <h3>Mortgage selection in Moscow and the region</h3>
+            <p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+                This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+                This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+        </section>
+    </div>
+</div>
+<section class="box">
+    <div class="row">
+        <div class="col-6 col-12-mobilep">
+
+            <h2>Advantages of the programs</h2>
+            <ul>
+                <li>The minimum package of documents.</li>
+                <li>Flexible ways to confirm income.</li>
+                <li>The loan term is up to 30 years.</li>
+                <li>The loan amount is from 100,000 to 30,000,000 rubles.*</li>
+                <li>Purchase of an apartment, flat or townhouse.</li>
+                <li>Registration at the place of residence is not required.</li>
+                <li>The opportunity to purchase an apartment with an unformed redevelopment.</li>
+            </ul>
+            <blockquote>* The loan amount is up to 30 million rubles (for Moscow, the Moscow region, St. Petersburg and the Leningrad region) / 15 million rubles. for other regions.</blockquote>
+
+            <h2>Simple requirements for the borrower:</h2>
+            <ol>
+                <li>Citizenship of the Russian Federation.</li>
+                <li>From 22 years (the term of repayment of the loan under the contract is up to 65 years).</li>
+                <li>From 3 months at the last place of work.</li>
+                <li>It is possible to account for the total income of up to 3 co-borrowers.</li>
+            </ol>
+
+        </div>
+        <div class="col-6 col-12-mobilep">
+
+            <h2>Excellent conditions</h2>
+            <ul class="alt">
+                <li><div class="table-wrapper">
+                    <table class="alt">
+                        <thead>
+                        <tr>
+                            <th>Initial payment </th>
+                            <th>interest rate*</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>from 50%
+                                <p>(up to 5 years)</p></td>
+                            <td>6.9%</td>
+                        </tr>
+                        <tr>
+                            <td>from 15%* *</td>
+                            <td>7.5%</td>
+                        </tr>
+                        <tr>
+                            <td>from 10%***</td>
+                            <td>8.5%</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div></li>
+            </ul>
+
+            <h4>Icons</h4>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+            </ul>
+
+
+        </div>
+    </div>
+</section>
+{% endblock %}

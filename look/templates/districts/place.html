@@ -1,0 +1,14 @@
+{% extends 'districts/dist.html' %}
+{% block main %}
+<section class="box special features">
+    <div class="features-row">
+        <section>
+            <h2>{{dist_image.name}}</h2>
+            <p>{{dist_image.description|safe}}</p>
+        </section>
+        <section>
+            <img class="image" src="{{dist_image.image.url}}" width="100%">
+        </section>
+    </div>
+</section>
+{% endblock main %}

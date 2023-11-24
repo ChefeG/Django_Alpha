@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Alpha Сonstruction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+
+	</head>
+	<body class="landing is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+
+			{% include 'include/header.html' %}
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Alpha</h2>
+					<p>We don't build houses, we build the world</p>
+					<ul class="actions special">
+						<li><a href="#" class="button primary">Sign Up</a></li>
+						<li><a href="{% url 'about' %}" class="button">About us</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Think about the future
+							<br />
+								appreciate the present</h2>
+							<p>We build houses based on modern architectural and construction solutions and uniform internal standards, we comply with the declared quality and construction deadlines.</p>
+						</header>
+						<span class="image featured"><img src="media/home_2.jpg" alt="building" /></span>
+					</section>
+
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+								<span class="icon solid major fas fa-angle-double-up accent2"></span>
+								<h3>Speed</h3>
+								<p>
+									Alpha is a team of professionals who improve the created product on a daily basis,
+									investing the accumulated knowledge and energy. Extensive experience, technological design, high organization and optimization of production processes allow us to build quickly and deliver houses on time or earlier.</p>
+							</section>
+							<section>
+								<span class="icon solid major fa-thumbs-up accent3"></span>
+								<h3>Quality</h3>
+								<p>Our specialists constantly study the novelties of the construction market and choose advanced solutions that are applicable in our climatic conditions and realities.
+									We attract proven contractors, like-minded people who support our principles, standards and production culture in order to build objects that meet the expectations of customers.</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon solid major fa-university accent4"></span>
+								<h3>Architecture</h3>
+								<p>There are no insignificant details in the creation of housing — they form the architecture of life. We find points of development, build an aesthetic modern urban environment and work according to the same quality standards of objects for the comfort of our customers.</p>
+							</section>
+							<section>
+								<span class="icon solid major fa-code-branch accent5"></span>
+								<h3>Technologies</h3>
+								<p>Alpha is an innovator with a rational approach. We use both classic and new
+									technologies that meet the parameters of durability and energy efficiency that appear on the market. We implement BIM-design, digitalization of engineering systems and home management using a mobile application.</p>
+							</section>
+						</div>
+					</section>
+				</section>
+
+			<!-- CTA -->
+
+
+			<!-- Footer -->
+				{% include 'include/footer.html' %}
+
+		</div>
+
+		<!-- Scripts -->
+		{% include 'include/scripts.html' %}
+
+	</body>
+</html>

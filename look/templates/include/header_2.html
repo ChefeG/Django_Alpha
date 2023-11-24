@@ -1,0 +1,32 @@
+<header id="header">
+  <h1><a href="{% url 'home' %}">Alpha</a> construction</h1>
+  <nav id="nav">
+    <ul>
+      <li>
+        <form action="{% url 'search' %}" method="get" class="d-flex editContent" >
+          <input type="search" placeholder="Search..." name="q" class="form-control" required="">
+          <!--<button type="submit" class="button" ><span class="fa fa-search" aria-hidden="true" ></span></button>-->
+        </form>
+      </li>
+      <li><a href="javascript:history.go(-1)" class="button">back</a>
+      </li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li>
+        <a href="#" class="icon solid fa-angle-down">Menu</a>
+          <ul>
+            {% for elem in view.get_category %}
+            <li><a href="/{{elem.url}}">{{elem.name}}</a></li>
+            {% endfor %}
+          </ul>
+      </li>
+      <li>
+        {% if user.is_authenticated %}
+        <a href="{% url 'account_logout' %}" class="button">Log Out</a>
+        {% else %}
+        <a href="{% url 'account_signup' %}" class="button">Sign Up</a>
+        <a href="{% url 'account_login' %}" class="button">Sign In</a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</header>

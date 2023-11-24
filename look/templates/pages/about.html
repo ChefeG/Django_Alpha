@@ -1,0 +1,15 @@
+{% extends 'districts/dist.html' %}
+{% block main %}
+
+<section id="main" class="container">
+
+    <section class="box special features">
+        <h2>{{ flatpage.title }}</h2>
+        <div class="features-row">
+            <p>{{flatpage.content|safe}}</p>
+        </div>
+    </section>
+
+</section>
+
+{% endblock main %}

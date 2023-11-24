@@ -1,0 +1,27 @@
+{% extends 'districts/dist.html' %}
+{% block main %}
+<section id="main" class="container">
+    <div class="row">
+        {% for elem in projects %}
+        {% if elem.draft == False %}
+        <div class="col-6 col-12-narrower">
+            <section class="box special">
+                <span class="image featured"><img src="{{elem.image.url}}" alt="" /></span>
+                <h3>{{elem.name}}</h3>
+                <p>Metro: {{elem.metro}}</p>
+                <p>{{elem.price}} RUB</p>
+                <ul class="actions special">
+                    <li>
+                        <a href="{% url 'detail' elem.url %}" class="button alt">Learn More</a>
+                        &nbsp
+                        <a href="{% url 'detail' elem.url %}" class="button">Buy</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% include 'include/pagination.html' %}
+</section>
+{% endblock %}

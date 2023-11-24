@@ -1,0 +1,24 @@
+{% extends 'home/generic.html' %}
+
+{% block content %}
+<section class="box special features">
+    <div class="features-row">
+            <h2>Submit an online mortgage application</h2>
+            <p>Fill in the fields and enter the current phone number — a confirmation code will be sent to it. After that, we will save your application and you can continue filling it out in your personal account.</p>
+            <p>If you have any questions during the process of filling out the questionnaire, <a href="#">read the
+                guide</a>, where all the necessary information on the mortgage is collected.</p>
+    </div>
+</section>
+<section>
+    <form class="submit">
+    <div class="col-12">
+        <select name="category" id="category">
+            <option value="">Districts</option>
+            {% for elem in dist %}
+            <option value="1">{{elem.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    </form>
+</section>
+{% endblock content %}
